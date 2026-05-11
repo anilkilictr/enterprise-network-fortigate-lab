@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 flowchart LR
     INTERNET[Internet / Lab NAT\n192.168.174.0/24] --- FG[FortiGate NGFW]
     R1[R1 Ankara] ---|1.1.1.0/30| FG
@@ -18,3 +19,43 @@ flowchart LR
     R2 ---|17.1.1.0/24| SW8[SW-8]
     SW5 ---|11.0.0.0/30| SW6
     SW7 --- SERVERS[VLAN 100 Servers\n192.168.100.0/24]
+=======
+flowchart TB
+    Internet((Internet))
+
+    subgraph HQ["HQ / Data Center"]
+        FG_HQ["FortiGate HQ\nNGFW / NAT / Policies"]
+        CORE1["Cisco Core SW1\nHSRP / OSPF"]
+        CORE2["Cisco Core SW2\nHSRP / OSPF"]
+        AD["Windows Server\nAD DS / DNS / DHCP"]
+        VLAN_IT["VLAN 10 - IT"]
+        VLAN_HR["VLAN 20 - HR"]
+        VLAN_SALES["VLAN 30 - Sales"]
+    end
+
+    subgraph BR1["Branch - Ankara"]
+        FG_BR1["FortiGate Branch"]
+        SW_BR1["Access Switch"]
+        USERS_BR1["Branch Users"]
+    end
+
+    subgraph BR2["Branch - Istanbul"]
+        FG_BR2["FortiGate Branch"]
+        SW_BR2["Access Switch"]
+        USERS_BR2["Branch Users"]
+    end
+
+    Internet --> FG_HQ
+    FG_HQ --> CORE1
+    FG_HQ --> CORE2
+    CORE1 <--> CORE2
+    CORE1 --> AD
+    CORE1 --> VLAN_IT
+    CORE1 --> VLAN_HR
+    CORE1 --> VLAN_SALES
+
+    FG_BR1 --> FG_HQ
+    FG_BR2 --> FG_HQ
+    FG_BR1 --> SW_BR1 --> USERS_BR1
+    FG_BR2 --> SW_BR2 --> USERS_BR2
+>>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96

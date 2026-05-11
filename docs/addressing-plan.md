@@ -1,5 +1,6 @@
 # Addressing Plan
 
+<<<<<<< HEAD
 This document reflects the corrected IP plan based on the uploaded topology image.
 
 ## Ankara VLANs
@@ -42,3 +43,25 @@ This document reflects the corrected IP plan based on the uploaded topology imag
 | VPC19, VPC20 | Ankara Sales | 30 | `30.1.1.0/24` |
 | VPC21, VPC22 | Ankara Engineering | 40 | `40.1.1.0/24` |
 | Windows Server, Server VPC | Istanbul Servers | 100 | `192.168.100.0/24` |
+=======
+| Site | Segment | VLAN | Subnet | Gateway | Notes |
+|---|---|---:|---|---|---|
+| HQ | IT | 10 | 10.10.10.0/24 | 10.10.10.1 | IT users |
+| HQ | HR | 20 | 10.10.20.0/24 | 10.10.20.1 | HR users |
+| HQ | Sales | 30 | 10.10.30.0/24 | 10.10.30.1 | Sales users |
+| HQ | Servers | 40 | 10.10.40.0/24 | 10.10.40.1 | AD, DNS, DHCP |
+| HQ | Management | 99 | 10.10.99.0/24 | 10.10.99.1 | Device management |
+| Branch Ankara | Users | 110 | 10.20.10.0/24 | 10.20.10.1 | Ankara branch users |
+| Branch Istanbul | Users | 120 | 10.30.10.0/24 | 10.30.10.1 | Istanbul branch users |
+
+## Naming Convention
+
+| Device | Example Name |
+|---|---|
+| FortiGate HQ | FG-HQ-01 |
+| FortiGate Branch | FG-BR-ANK-01 |
+| Core Switch 1 | SW-HQ-CORE-01 |
+| Core Switch 2 | SW-HQ-CORE-02 |
+| Windows Server | SRV-HQ-AD-01 |
+
+>>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96

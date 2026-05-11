@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OS files
 .DS_Store
 Thumbs.db
@@ -11,3 +12,28 @@ Thumbs.db
 *.secret
 .env
 *.conf.real
+=======
+# System files
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+*.bak
+*.backup
+*.conf.backup
+*.secret
+*.key
+*.pem
+.env
+
+# EVE-NG / VM exports
+*.qcow2
+*.vmdk
+*.ova
+*.ovf
+*.iso
+
+# Temporary files
+*.tmp
+*.log
+>>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96
