@@ -5,10 +5,6 @@ A multi-site enterprise network lab built in **EVE-NG**. The topology demonstrat
 
 > This repository uses sanitized lab documentation. No real production IPs, passwords, VPN keys, or organization-specific data are included.
 
-## Lab Topology
-
-![Enterprise Network FortiGate Lab Topology](diagrams/topology.png)
-
 ## Main Technologies
 
 - Cisco routing and switching
