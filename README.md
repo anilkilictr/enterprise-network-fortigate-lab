@@ -40,45 +40,8 @@ The goal of this lab is to demonstrate how enterprise network components work to
 
 ## Logical Topology
 
-```mermaid
-flowchart TB
-    Internet((Internet))
+<img width="800" height="550" alt="1767099090740" src="https://github.com/user-attachments/assets/ed5f74cb-5ae4-4064-a653-b558508ce583" />
 
-    subgraph HQ["HQ / Data Center"]
-        FG_HQ["FortiGate HQ<br/>NGFW / NAT / Policies"]
-        CORE1["Cisco Core SW1<br/>HSRP / OSPF"]
-        CORE2["Cisco Core SW2<br/>HSRP / OSPF"]
-        AD["Windows Server<br/>AD DS / DNS / DHCP"]
-        VLAN_IT["VLAN 10 - IT"]
-        VLAN_HR["VLAN 20 - HR"]
-        VLAN_SALES["VLAN 30 - Sales"]
-    end
-
-    subgraph BR1["Branch - Ankara"]
-        FG_BR1["FortiGate Branch"]
-        SW_BR1["Access Switch"]
-        USERS_BR1["Branch Users"]
-    end
-
-    subgraph BR2["Branch - Istanbul"]
-        FG_BR2["FortiGate Branch"]
-        SW_BR2["Access Switch"]
-        USERS_BR2["Branch Users"]
-    end
-
-    Internet --> FG_HQ
-    FG_HQ --> CORE1
-    FG_HQ --> CORE2
-    CORE1 <--> CORE2
-    CORE1 --> AD
-    CORE1 --> VLAN_IT
-    CORE1 --> VLAN_HR
-    CORE1 --> VLAN_SALES
-
-    FG_BR1 --> FG_HQ
-    FG_BR2 --> FG_HQ
-    FG_BR1 --> SW_BR1 --> USERS_BR1
-    FG_BR2 --> SW_BR2 --> USERS_BR2
 ```
 
 ---
