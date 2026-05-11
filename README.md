@@ -18,6 +18,9 @@ A multi-site enterprise network lab built in **EVE-NG**. The topology demonstrat
 | Security and WAN | FortiGate NGFW, NAT, firewall policies | Edge security, traffic inspection, and controlled inter-site access |
 | Identity and Services | Windows Server, DHCP Relay, DNS/AD-ready services | Centralized server-side lab services |
 
+## Topology
+<img width="800" height="550" alt="image" src="https://github.com/user-attachments/assets/ad0967c4-b152-4d0d-87e9-233ffdb067c1" />
+
 ## Key Features
 
 ### Cisco Routing and Switching
