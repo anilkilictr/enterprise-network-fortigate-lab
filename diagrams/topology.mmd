@@ -1,61 +1,20 @@
-<<<<<<< HEAD
 flowchart LR
-    INTERNET[Internet / Lab NAT\n192.168.174.0/24] --- FG[FortiGate NGFW]
+    INTERNET[Internet / Lab NAT<br/>192.168.174.0/24] --- FG[FortiGate NGFW]
     R1[R1 Ankara] ---|1.1.1.0/30| FG
     FG ---|2.1.1.0/30| R2[R2 Istanbul]
 
-    R1 ---|12.1.1.0/24| SW3[SW-3]
-    R1 ---|13.1.1.0/24| SW4[SW-4]
+    R1 ---|12.1.1.0/24| SW3[SW-3 Ankara Distribution]
+    R1 ---|13.1.1.0/24| SW4[SW-4 Ankara Distribution]
     SW3 ---|10.0.0.0/30| SW4
 
-    SW3 --- VLAN10[VLAN 10 IT\n10.1.1.0/24]
-    SW3 --- VLAN20[VLAN 20 HR\n20.1.1.0/24]
-    SW4 --- VLAN30[VLAN 30 Sales\n30.1.1.0/24]
-    SW4 --- VLAN40[VLAN 40 Engineering\n40.1.1.0/24]
+    SW3 --- VLAN10[VLAN 10 IT<br/>10.1.1.0/24]
+    SW3 --- VLAN20[VLAN 20 HR<br/>20.1.1.0/24]
+    SW4 --- VLAN30[VLAN 30 Sales<br/>30.1.1.0/24]
+    SW4 --- VLAN40[VLAN 40 Engineering<br/>40.1.1.0/24]
 
-    R2 ---|14.1.1.0/24| SW5[SW-5]
-    R2 ---|15.1.1.0/24| SW6[SW-6]
-    R2 ---|16.1.1.0/24| SW7[SW-7]
-    R2 ---|17.1.1.0/24| SW8[SW-8]
+    R2 ---|14.1.1.0/24| SW5[SW-5 Istanbul Distribution]
+    R2 ---|15.1.1.0/24| SW6[SW-6 Istanbul Distribution]
+    R2 ---|16.1.1.0/24| SW7[SW-7 Istanbul Distribution]
+    R2 ---|17.1.1.0/24| SW8[SW-8 Istanbul Distribution]
     SW5 ---|11.0.0.0/30| SW6
-    SW7 --- SERVERS[VLAN 100 Servers\n192.168.100.0/24]
-=======
-flowchart TB
-    Internet((Internet))
-
-    subgraph HQ["HQ / Data Center"]
-        FG_HQ["FortiGate HQ\nNGFW / NAT / Policies"]
-        CORE1["Cisco Core SW1\nHSRP / OSPF"]
-        CORE2["Cisco Core SW2\nHSRP / OSPF"]
-        AD["Windows Server\nAD DS / DNS / DHCP"]
-        VLAN_IT["VLAN 10 - IT"]
-        VLAN_HR["VLAN 20 - HR"]
-        VLAN_SALES["VLAN 30 - Sales"]
-    end
-
-    subgraph BR1["Branch - Ankara"]
-        FG_BR1["FortiGate Branch"]
-        SW_BR1["Access Switch"]
-        USERS_BR1["Branch Users"]
-    end
-
-    subgraph BR2["Branch - Istanbul"]
-        FG_BR2["FortiGate Branch"]
-        SW_BR2["Access Switch"]
-        USERS_BR2["Branch Users"]
-    end
-
-    Internet --> FG_HQ
-    FG_HQ --> CORE1
-    FG_HQ --> CORE2
-    CORE1 <--> CORE2
-    CORE1 --> AD
-    CORE1 --> VLAN_IT
-    CORE1 --> VLAN_HR
-    CORE1 --> VLAN_SALES
-
-    FG_BR1 --> FG_HQ
-    FG_BR2 --> FG_HQ
-    FG_BR1 --> SW_BR1 --> USERS_BR1
-    FG_BR2 --> SW_BR2 --> USERS_BR2
->>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96
+    SW7 --- SERVERS[VLAN 100 Servers<br/>192.168.100.0/24]

@@ -4,10 +4,10 @@
 - [ ] VLAN IDs planned
 - [ ] IP addressing plan completed
 - [ ] Trunk links identified
-- [ ] EtherChannel links identified
-- [ ] HSRP virtual IPs planned
-- [ ] OSPF router IDs planned
+- [ ] Routed uplinks identified
+- [ ] OSPF router IDs planned if OSPF is used
 - [ ] FortiGate interface roles planned
 - [ ] DHCP scopes planned
 - [ ] AD/DNS server IP reserved
 - [ ] Firewall policy matrix prepared
+- [ ] Public repository files reviewed for secrets

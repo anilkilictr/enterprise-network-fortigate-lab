@@ -1,14 +1,19 @@
 # Troubleshooting Guide
 
-<<<<<<< HEAD
-## 1. VLAN Client Cannot Reach Gateway
+## VLAN Issues
 
-Check:
+### Symptoms
 
-- Access port VLAN assignment
-- Trunk allowed VLAN list
-- SVI/interface status
-- Default gateway configured on endpoint
+- Client cannot reach gateway
+- Client is in the wrong subnet
+- Trunk does not carry required VLAN
+
+### Checks
+
+- Verify access port VLAN assignment.
+- Verify trunk allowed VLAN list.
+- Verify SVI or routed interface status.
+- Verify endpoint default gateway.
 
 Commands:
 
@@ -18,98 +23,73 @@ show interfaces trunk
 show ip interface brief
 ```
 
-## 2. DHCP Is Not Working
-
-Check:
-
-- DHCP scope exists on Windows Server
-- DHCP server IP is reachable from gateway
-- `ip helper-address` is configured on user VLAN gateways
-- Firewall policy allows DHCP relay traffic where required
-
-## 3. Inter-Site Connectivity Fails
-
-Check:
-
-- R1 ↔ FortiGate `1.1.1.0/30`
-- FortiGate ↔ R2 `2.1.1.0/30`
-- Routing table on R1, R2 and FortiGate
-- Firewall policies between sites
-
-## 4. Server VLAN Is Not Reachable
-
-Check:
-
-- VLAN 100 access/trunk configuration
-- Server default gateway
-- Routing toward `192.168.100.0/24`
-- FortiGate security policy
-=======
-## VLAN Issues
+## Routing Issues
 
 ### Symptoms
-- Client cannot reach gateway
-- Client is in wrong subnet
-- Trunk does not carry required VLAN
 
-### Checks
-- `show vlan brief`
-- `show interfaces trunk`
-- `show etherchannel summary`
-- Verify access port VLAN assignment
-
-## HSRP Issues
-
-### Symptoms
-- Gateway IP unreachable
-- Both switches appear active
-- Failover does not work
-
-### Checks
-- `show standby brief`
-- Verify HSRP group number
-- Verify virtual IP address
-- Verify interface VLAN status
-
-## OSPF Issues
-
-### Symptoms
-- Branch or VLAN routes missing
-- OSPF neighbor not forming
 - Inter-site traffic fails
+- VLAN routes are missing
+- Server VLAN is unreachable
 
 ### Checks
-- `show ip ospf neighbor`
-- `show ip route ospf`
-- Verify network statements
-- Verify interface MTU and passive-interface settings
+
+- Verify R1 to FortiGate connectivity over `1.1.1.0/30`.
+- Verify FortiGate to R2 connectivity over `2.1.1.0/30`.
+- Check routing tables on R1, R2, distribution switches, and FortiGate.
+- Confirm that VLAN and transit networks are advertised or statically routed.
+
+Commands:
+
+```cisco
+show ip route
+show ip protocols
+show ip ospf neighbor
+```
 
 ## DHCP Relay Issues
 
 ### Symptoms
+
 - Client receives APIPA address
-- Client cannot get IP from central DHCP server
-- Only local VLAN works
+- Client cannot get IP from centralized DHCP
+- Only server-local VLAN clients receive addresses
 
 ### Checks
-- Verify DHCP scope
-- Verify relay/helper address
-- Verify firewall policy allows DHCP relay traffic
-- Verify route between client VLAN and DHCP server
+
+- Verify DHCP scopes exist on Windows Server.
+- Verify the DHCP server IP is reachable from VLAN gateways.
+- Verify `ip helper-address` is configured on user VLAN gateways.
+- Verify firewall policy allows DHCP relay traffic where required.
 
 ## FortiGate Policy Issues
 
 ### Symptoms
-- Ping works but application fails
-- Branch users cannot access HQ server
+
+- Ping works but application access fails
+- Ankara users cannot access server services
 - Internet access fails
+- Expected deny rule is not taking effect
 
 ### Checks
-- Validate route lookup
-- Validate NAT policy
-- Validate firewall policy order
-- Check source/destination interfaces
-- Check service objects
-- Use FortiGate log viewer and policy hit counters
 
->>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96
+- Validate route lookup.
+- Validate NAT policy.
+- Check source and destination interfaces.
+- Check service objects.
+- Check firewall policy order.
+- Use FortiGate logs and policy hit counters.
+
+## Server VLAN Issues
+
+### Symptoms
+
+- Windows Server is not reachable
+- DNS or DHCP does not respond
+- Server VPC cannot reach remote VLANs
+
+### Checks
+
+- Verify VLAN 100 access and trunk configuration.
+- Verify server default gateway.
+- Verify routing toward `192.168.100.0/24`.
+- Verify FortiGate policy between Ankara VLANs and server VLAN.

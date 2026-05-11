@@ -8,7 +8,7 @@ Recommended future additions:
 - Add interface labels
 - Add IP addressing overlays
 - Add traffic flow arrows for:
-  - User to Internet
-  - Branch to AD/DNS
-  - DHCP Relay
+  - Ankara users to Internet
+  - Ankara users to Istanbul server VLAN
+  - DHCP Relay to Windows Server
   - Blocked inter-VLAN traffic

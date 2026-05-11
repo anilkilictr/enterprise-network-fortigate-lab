@@ -1,39 +1,38 @@
 # Security Hardening Checklist
 
-<<<<<<< HEAD
+## Repository Safety
+
 - [ ] Do not publish real device backups
-- [ ] Remove passwords, keys, SNMP communities and tokens
+- [ ] Remove passwords, keys, SNMP communities, and tokens
 - [ ] Use sample hostnames and lab IP addresses only
-- [ ] Restrict management access to trusted subnets
-- [ ] Apply least privilege firewall policies
-- [ ] Disable unused switch ports
-- [ ] Use SSH instead of Telnet
-- [ ] Document allowed services between VLANs
-=======
+- [ ] Review screenshots before publishing
+- [ ] Keep public examples sanitized
+
 ## Network Devices
 
-- [ ] Disable unused ports
+- [ ] Disable unused switch ports
 - [ ] Use SSH instead of Telnet
 - [ ] Use strong local credentials or centralized authentication
-- [ ] Restrict management access to management VLAN
+- [ ] Restrict management access to trusted subnets
 - [ ] Configure NTP
 - [ ] Configure syslog
+- [ ] Document allowed services between VLANs
 
 ## FortiGate
 
 - [ ] Remove unused policies
-- [ ] Avoid broad any-any rules
+- [ ] Avoid broad `any-any` allow rules
 - [ ] Enable logging on critical policies
 - [ ] Restrict admin access
 - [ ] Keep firmware updated
 - [ ] Use named address and service objects
+- [ ] Apply least privilege firewall policies
 
 ## Windows Server
 
 - [ ] Use least privilege
 - [ ] Apply updates
 - [ ] Configure DNS properly
-- [ ] Review GPOs
-- [ ] Backup AD
+- [ ] Review GPOs if AD is enabled
+- [ ] Back up AD if AD is enabled
 - [ ] Monitor event logs
->>>>>>> 3e93d57fe7003addf57d61508e7861286b2cbf96
