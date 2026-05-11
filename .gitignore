@@ -1,0 +1,23 @@
+# System files
+.DS_Store
+Thumbs.db
+
+# Sensitive files
+*.bak
+*.backup
+*.conf.backup
+*.secret
+*.key
+*.pem
+.env
+
+# EVE-NG / VM exports
+*.qcow2
+*.vmdk
+*.ova
+*.ovf
+*.iso
+
+# Temporary files
+*.tmp
+*.log
