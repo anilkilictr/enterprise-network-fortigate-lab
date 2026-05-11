@@ -1,0 +1,20 @@
+flowchart LR
+    INTERNET[Internet / Lab NAT\n192.168.174.0/24] --- FG[FortiGate NGFW]
+    R1[R1 Ankara] ---|1.1.1.0/30| FG
+    FG ---|2.1.1.0/30| R2[R2 Istanbul]
+
+    R1 ---|12.1.1.0/24| SW3[SW-3]
+    R1 ---|13.1.1.0/24| SW4[SW-4]
+    SW3 ---|10.0.0.0/30| SW4
+
+    SW3 --- VLAN10[VLAN 10 IT\n10.1.1.0/24]
+    SW3 --- VLAN20[VLAN 20 HR\n20.1.1.0/24]
+    SW4 --- VLAN30[VLAN 30 Sales\n30.1.1.0/24]
+    SW4 --- VLAN40[VLAN 40 Engineering\n40.1.1.0/24]
+
+    R2 ---|14.1.1.0/24| SW5[SW-5]
+    R2 ---|15.1.1.0/24| SW6[SW-6]
+    R2 ---|16.1.1.0/24| SW7[SW-7]
+    R2 ---|17.1.1.0/24| SW8[SW-8]
+    SW5 ---|11.0.0.0/30| SW6
+    SW7 --- SERVERS[VLAN 100 Servers\n192.168.100.0/24]
